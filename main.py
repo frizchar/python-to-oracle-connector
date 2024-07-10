@@ -22,7 +22,7 @@ def pull_data(connection_string: str):
     finally:
         if conn:
             print('db socket open..')
-            # define the query parts that are needed to compose the query
+            # read .sql file
             with open(r"sql_script.sql") as sql_feed:
                 query = sql_feed.read()
             # run query
