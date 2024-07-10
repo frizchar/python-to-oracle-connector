@@ -1,8 +1,9 @@
 # python-to-oracle-connector
 ### Overview
-1. We provide python code to connect to Oracle database using the [cx-Oracle](https://oracle.github.io/python-cx_Oracle/) package
-1. Then data is queried with an sql script and finally
-1. Data is converted to pandas dataframe
+We provide python code to pull data from Oracale database, following the steps below:<br>
+1. connect to Oracle database using the [cx-Oracle](https://oracle.github.io/python-cx_Oracle/) package
+1. query data with the sql file ```sql_script.sql```
+1. convert data to pandas dataframe
 
 ### Dependencies
 The required packages are included in file ```requirements.txt```.<br>
