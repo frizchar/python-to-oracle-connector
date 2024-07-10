@@ -1,6 +1,5 @@
 # pulls data from Oracle database and converts it to pandas dataframe
 
-
 import pandas as pd
 import cx_Oracle
 
@@ -22,7 +21,7 @@ def pull_data(connection_string: str):
         print(err)
     finally:
         if conn:
-            print('db hospital socket open..')
+            print('db socket open..')
             # define the query parts that are needed to compose the query
             with open(r"sql_script.sql") as sql_feed:
                 query = sql_feed.read()
@@ -34,7 +33,7 @@ def pull_data(connection_string: str):
             cur.close()
             # close the connection object
             conn.close()
-            print('db hospital socket closed..\n')
+            print('db socket closed..\n')
 
     return query_columns, query_result
 
