@@ -7,13 +7,13 @@ import os
 from datetime import datetime
 
 
-def pull_data(hospital_connection_string: str, number_of_classes: int):
+def pull_data(hospital_connection_string: str):
     """pulls data from a hospital database"""
 
     # initialize the connection object
     try:
         # create a connection object
-        conn = cx_Oracle.connect(hospital_connection_string)
+        conn = cx_Oracle.connect(connection_string)
         # get a cursor object from the connection
         cur = conn.cursor()
     # raise error if connection fails
@@ -45,7 +45,7 @@ local_host = [YOUR_ORACLE_LOCALHOST]  # get schema local host
 local_host = [YOUR_ORACLE_SERVICE_NAME]  # get schema service name
 
 
-def create_df(hospital: str, number_of_classes: int):
+def create_df(hospital: str):
     # compose connection string to database
     connection_string = usr  + "/" + psswrd  + "@" + local_host + "/" + service_name
 
