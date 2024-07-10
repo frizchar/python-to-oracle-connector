@@ -54,7 +54,6 @@ def create_df(usr: str, psswrd: str, local_host: str, service_name: str):
     z = pull_data(connection_string)  # pull data from datapool
 
     # convert the list of query results to pandas dataframe
-    # df = pd.DataFrame(z[1]).dropna()
     df = pd.DataFrame(z[1])
 
     # add headers to created pandas dataframe
