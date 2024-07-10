@@ -38,7 +38,7 @@ def pull_data(connection_string: str):
     return query_columns, query_result
 
 
-def create_df(usr: str, psswrd: str, local_host: str, service_name: str):
+def create_pandas_dataframe(usr: str, psswrd: str, local_host: str, service_name: str):
     """
     function generates connection string to Oracle database and then calls function pull_data()
 
@@ -64,7 +64,7 @@ def create_df(usr: str, psswrd: str, local_host: str, service_name: str):
     return df
 
 if __name__ == "__main__":
-    df = create_df('[YOUR_ORACLE_SCHEMA_USERNAME]',
+    df = create_pandas_dataframe('[YOUR_ORACLE_SCHEMA_USERNAME]',
                    '[YOUR_ORACLE_SCHEMA_PASSWORD]',
                    '[YOUR_ORACLE_LOCALHOST]',
                    '[YOUR_ORACLE_SERVICE_NAME]')
