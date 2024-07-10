@@ -64,7 +64,8 @@ def create_pandas_dataframe(usr: str, psswrd: str, local_host: str, service_name
     return df
 
 if __name__ == "__main__":
-    df = create_pandas_dataframe('[YOUR_ORACLE_SCHEMA_USERNAME]',
+    df = create_pandas_dataframe(
+                   '[YOUR_ORACLE_SCHEMA_USERNAME]',
                    '[YOUR_ORACLE_SCHEMA_PASSWORD]',
                    '[YOUR_ORACLE_LOCALHOST]',
                    '[YOUR_ORACLE_SERVICE_NAME]')
