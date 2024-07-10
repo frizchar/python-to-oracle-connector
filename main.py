@@ -24,12 +24,8 @@ def pull_data(hospital_connection_string: str, number_of_classes: int):
         if conn:
             print('db hospital socket open..')
             # define the query parts that are needed to compose the query
-            if number_of_classes == 2:
-                with open(r"sql_feed_2class.sql") as sql_feed:
-                    query = sql_feed.read()
-            elif number_of_classes == 3:
-                with open(r"sql_feed_3class.sql") as sql_feed:
-                    query = sql_feed.read()
+            with open(r"sql_feed_3class.sql") as sql_feed:
+                query = sql_feed.read()
             # run query
             query_result = cur.execute(query).fetchall()
             # get query columns
