@@ -24,7 +24,7 @@ def pull_data(hospital_connection_string: str, number_of_classes: int):
         if conn:
             print('db hospital socket open..')
             # define the query parts that are needed to compose the query
-            with open(r"sql_feed_3class.sql") as sql_feed:
+            with open(r"sql_script.sql") as sql_feed:
                 query = sql_feed.read()
             # run query
             query_result = cur.execute(query).fetchall()
