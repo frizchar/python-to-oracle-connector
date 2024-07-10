@@ -3,12 +3,12 @@
 
 import pandas as pd
 import cx_Oracle
-import os
-from datetime import datetime
 
 
-def pull_data(hospital_connection_string: str):
-    """pulls data from a hospital database"""
+def pull_data(connection_string: str):
+    """
+    function pulls data from Oracle database
+    """
 
     # initialize the connection object
     try:
@@ -39,18 +39,20 @@ def pull_data(hospital_connection_string: str):
     return query_columns, query_result
 
 
-usr = [YOUR_ORACLE_SCHEMA_USERNAME]  # get schema user name
-psswrd = [YOUR_ORACLE_SCHEMA_PASSWORD]  # get schema password
-local_host = [YOUR_ORACLE_LOCALHOST]  # get schema local host
-local_host = [YOUR_ORACLE_SERVICE_NAME]  # get schema service name
+def create_df(usr: str, psswrd: str, local_host: str, service_name: str):
+    """
+    function generates connection string to Oracle database and then calls function pull_data()
 
+    function arguments:
+    usr := [YOUR_ORACLE_SCHEMA_USERNAME]  # Oracle schema username
+    psswrd := [YOUR_ORACLE_SCHEMA_PASSWORD]  # Oracle schema password
+    local_host := [YOUR_ORACLE_LOCALHOST]  # Oracle schema local host
+    service_name := [YOUR_ORACLE_SERVICE_NAME]  # Oracle schema service name
+    """
 
-def create_df(hospital: str):
-    # compose connection string to database
     connection_string = usr  + "/" + psswrd  + "@" + local_host + "/" + service_name
 
-    z = pull_data(connection_string, number_of_classes)  # pull data from datapool
-    start_time = z[2]
+    z = pull_data(connection_string)  # pull data from datapool
 
     # convert the list of query results to pandas dataframe
     # df = pd.DataFrame(z[1]).dropna()
@@ -62,3 +64,11 @@ def create_df(hospital: str):
     print('df_pulled\n')
 
     return df
+
+if __name__ == "__main__":
+    df = create_df('[YOUR_ORACLE_SCHEMA_USERNAME]',
+                   '[YOUR_ORACLE_SCHEMA_PASSWORD]',
+                   '[YOUR_ORACLE_LOCALHOST]',
+                   '[YOUR_ORACLE_SERVICE_NAME]')
+
+    print(df.head())
