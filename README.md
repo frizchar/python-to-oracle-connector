@@ -1,4 +1,4 @@
-# python-to-oracle-connector
+# python-to-oracle connector
 ### Overview
 We provide python code to pull data from Oracale database, following the steps below:<br>
 1. connect to Oracle database using the [cx-Oracle](https://oracle.github.io/python-cx_Oracle/) package
